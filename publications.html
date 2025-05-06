@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发表论文 - AnnLab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>AnnLab</h1>
+            <p>人工智能与自然语言处理实验室</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="people.html">团队成员</a></li>
+                <li><a href="publications.html" class="active">发表论文</a></li>
+                <li><a href="activity.html">学术活动</a></li>
+                <li><a href="join.html">加入我们</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section class="publications">
+                <h2>发表论文</h2>
+                
+                <div class="pub-filter">
+                    <label for="pub-year">按年份筛选：</label>
+                    <select id="pub-year">
+                        <option value="all">全部</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                    </select>
+                    
+                    <label for="pub-type">按类型筛选：</label>
+                    <select id="pub-type">
+                        <option value="all">全部</option>
+                        <option value="journal">期刊</option>
+                        <option value="conference">会议</option>
+                    </select>
+                </div>
+                
+                <div class="pub-year" id="year-2024">
+                    <h3>2024</h3>
+                    
+                    <div class="pub-item journal">
+                        <p class="pub-title">基于多头注意力机制的情感语音合成研究</p>
+                        <p class="pub-authors"><strong>张同学</strong>, 王教授</p>
+                        <p class="pub-journal">Information Fusion, Volume XX, Pages XX-XX, 2024.</p>
+                        <p class="pub-links">
+                            <a href="#" class="pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="#" class="code"><i class="fas fa-code"></i> 代码</a>
+                            <a href="#" class="demo"><i class="fas fa-headphones"></i> 演示</a>
+                        </p>
+                    </div>
+                    
+                    <div class="pub-item conference">
+                        <p class="pub-title">多模态情感识别中的跨模态特征融合方法</p>
+                        <p class="pub-authors"><strong>李同学</strong>, 李教授</p>
+                        <p class="pub-journal">IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2024.</p>
+                        <p class="pub-links">
+                            <a href="#" class="pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="#" class="code"><i class="fas fa-code"></i> 代码</a>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="pub-year" id="year-2023">
+                    <h3>2023</h3>
+                    
+                    <div class="pub-item journal">
+                        <p class="pub-title">低资源语言环境下的语音合成技术研究</p>
+                        <p class="pub-authors">王教授, <strong>赵同学</strong></p>
+                        <p class="pub-journal">IEEE/ACM Transactions on Audio, Speech, and Language Processing, Volume XX, Issue X, Pages XX-XX, 2023.</p>
+                        <p class="pub-links">
+                            <a href="#" class="pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="#" class="code"><i class="fas fa-code"></i> 代码</a>
+                            <a href="#" class="demo"><i class="fas fa-headphones"></i> 演示</a>
+                        </p>
+                    </div>
+                    
+                    <div class="pub-item conference">
+                        <p class="pub-title">基于深度学习的音频鉴伪技术研究</p>
+                        <p class="pub-authors"><strong>张同学</strong>, 王教授</p>
+                        <p class="pub-journal">INTERSPEECH 2023, Dublin, Ireland.</p>
+                        <p class="pub-links">
+                            <a href="#" class="pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="#" class="code"><i class="fas fa-code"></i> 代码</a>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="pub-year" id="year-2022">
+                    <h3>2022</h3>
+                    
+                    <div class="pub-item journal">
+                        <p class="pub-title">情感语音转换中的双向特征迁移方法</p>
+                        <p class="pub-authors">李教授, <strong>刘同学</strong></p>
+                        <p class="pub-journal">IEEE/ACM Transactions on Audio, Speech, and Language Processing, Volume XX, Issue X, Pages XX-XX, 2022.</p>
+                        <p class="pub-links">
+                            <a href="#" class="pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="#" class="demo"><i class="fas fa-headphones"></i> 演示</a>
+                        </p>
+                    </div>
+                    
+                    <div class="pub-item conference">
+                        <p class="pub-title">蒙古语情感语音合成数据集与方法</p>
+                        <p class="pub-authors"><strong>梁同学</strong>, 王教授</p>
+                        <p class="pub-journal">中国中文信息学会全国计算机语音会议 (NCMMSC), 2022.</p>
+                        <p class="pub-links">
+                            <a href="#" class="pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="pub-year" id="year-2021">
+                    <h3>2021</h3>
+                    
+                    <div class="pub-item journal">
+                        <p class="pub-title">快速高质量的表现力语音合成方法</p>
+                        <p class="pub-authors">王教授, <strong>胡博士</strong></p>
+                        <p class="pub-journal">Neural Networks, Volume XX, Pages XX-XX, 2021.</p>
+                        <p class="pub-links">
+                            <a href="#" class="pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="#" class="code"><i class="fas fa-code"></i> 代码</a>
+                            <a href="#" class="demo"><i class="fas fa-headphones"></i> 演示</a>
+                        </p>
+                    </div>
+                    
+                    <div class="pub-item conference">
+                        <p class="pub-title">表现力语音合成中的韵律建模</p>
+                        <p class="pub-authors"><strong>林博士</strong>, 李教授</p>
+                        <p class="pub-journal">INTERSPEECH 2021.</p>
+                        <p class="pub-links">
+                            <a href="#" class="pdf"><i class="fas fa-file-pdf"></i> PDF</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="contact">
+                <h3>联系方式</h3>
+                <p><i class="fas fa-envelope"></i> annlab@example.com</p>
+                <p><i class="fas fa-phone"></i> +86 123 4567 8910</p>
+                <p><i class="fas fa-map-marker-alt"></i> 503室, 计算机科学与技术学院</p>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 AnnLab. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
