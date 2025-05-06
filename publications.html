@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>发表论文 - AnnLab</title>
+    <title>科研成果 - AnnLab</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -20,7 +20,7 @@
             <ul>
                 <li><a href="index.html">首页</a></li>
                 <li><a href="people.html">团队成员</a></li>
-                <li><a href="publications.html" class="active">论文成果</a></li>
+                <li><a href="publications.html" class="active">科研成果</a></li>
                 <li><a href="activity.html">学术活动</a></li>
                 <li><a href="join.html">加入我们</a></li>
             </ul>
@@ -29,7 +29,16 @@
 
     <main>
         <div class="container">
-            <section class="publications">
+            <!-- 成果导航标签 -->
+            <div class="results-tabs">
+                <button class="tab-btn active" data-tab="publications">发表论文</button>
+                <button class="tab-btn" data-tab="projects">科研项目</button>
+                <button class="tab-btn" data-tab="patents">发明专利</button>
+                <button class="tab-btn" data-tab="software">软件著作权</button>
+            </div>
+            
+            <!-- 发表论文部分 -->
+            <section class="publications tab-content active" id="publications">
                 <h2>发表论文</h2>
                 
                 <div class="pub-filter">
@@ -144,6 +153,181 @@
                         <p class="pub-links">
                             <a href="#" class="pdf"><i class="fas fa-file-pdf"></i> PDF</a>
                         </p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 科研项目部分 -->
+            <section class="projects tab-content" id="projects">
+                <h2>科研项目</h2>
+                
+                <div class="project-filter">
+                    <label for="project-type">按类型筛选：</label>
+                    <select id="project-type">
+                        <option value="all">全部项目</option>
+                        <option value="national">国家级项目</option>
+                        <option value="provincial">省部级项目</option>
+                        <option value="university">校级项目</option>
+                        <option value="enterprise">企业合作项目</option>
+                    </select>
+                </div>
+                
+                <div class="project-list">
+                    <!-- 国家级项目 -->
+                    <div class="project-item national">
+                        <div class="project-header">
+                            <h3>面向区域经济发展的知识图谱构建与应用研究</h3>
+                            <span class="project-tag national">国家自然科学基金</span>
+                        </div>
+                        <div class="project-details">
+                            <p><i class="fas fa-user"></i> <strong>主持人：</strong>安春燕</p>
+                            <p><i class="fas fa-calendar-alt"></i> <strong>时间：</strong>2023-2026</p>
+                            <p><i class="fas fa-tag"></i> <strong>编号：</strong>NSFC-62172212</p>
+                            <p><i class="fas fa-info-circle"></i> <strong>简介：</strong>本项目针对区域经济发展中的知识管理与决策支持需求，研究知识图谱构建与应用的关键技术，包括多源异构数据的知识抽取、知识融合与推理等，并在奶业金融领域进行应用验证。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 省部级项目 -->
+                    <div class="project-item provincial">
+                        <div class="project-header">
+                            <h3>基于多模态知识图谱的内蒙古文化旅游智能服务研究</h3>
+                            <span class="project-tag provincial">内蒙古自治区科技计划</span>
+                        </div>
+                        <div class="project-details">
+                            <p><i class="fas fa-user"></i> <strong>主持人：</strong>安春燕</p>
+                            <p><i class="fas fa-calendar-alt"></i> <strong>时间：</strong>2022-2024</p>
+                            <p><i class="fas fa-tag"></i> <strong>编号：</strong>2022-NMGKJH-2034</p>
+                            <p><i class="fas fa-info-circle"></i> <strong>简介：</strong>本项目研究多模态知识图谱构建与应用技术，针对内蒙古文化旅游领域的特点，融合文本、图像、音频等多模态数据，构建综合知识库，为旅游智能服务提供支持。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 企业合作项目 -->
+                    <div class="project-item enterprise">
+                        <div class="project-header">
+                            <h3>基于云计算的智能资源调度系统研发</h3>
+                            <span class="project-tag enterprise">企业合作项目</span>
+                        </div>
+                        <div class="project-details">
+                            <p><i class="fas fa-user"></i> <strong>主持人：</strong>安春燕</p>
+                            <p><i class="fas fa-calendar-alt"></i> <strong>时间：</strong>2023-2024</p>
+                            <p><i class="fas fa-building"></i> <strong>合作单位：</strong>中国移动内蒙古分公司</p>
+                            <p><i class="fas fa-info-circle"></i> <strong>简介：</strong>本项目针对容器云平台的弹性扩缩需求，研发智能资源调度系统，实现负载预测与自动弹性扩缩，提高资源利用率，降低运维成本。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 校级项目 -->
+                    <div class="project-item university">
+                        <div class="project-header">
+                            <h3>基于深度学习的奶业大数据分析平台</h3>
+                            <span class="project-tag university">校企合作项目</span>
+                        </div>
+                        <div class="project-details">
+                            <p><i class="fas fa-user"></i> <strong>主持人：</strong>安春燕</p>
+                            <p><i class="fas fa-calendar-alt"></i> <strong>时间：</strong>2022-2023</p>
+                            <p><i class="fas fa-building"></i> <strong>合作单位：</strong>内蒙古伊利实业集团股份有限公司</p>
+                            <p><i class="fas fa-info-circle"></i> <strong>简介：</strong>本项目应用深度学习技术，构建奶业领域大数据分析平台，支持奶牛健康状况监测、产量预测、质量评估等功能，提升奶业生产效率和产品质量。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 发明专利部分 -->
+            <section class="patents tab-content" id="patents">
+                <h2>发明专利</h2>
+                
+                <div class="patent-list">
+                    <div class="patent-item">
+                        <div class="patent-header">
+                            <h3>一种基于深度学习的云计算负载预测方法</h3>
+                            <span class="patent-status granted">已授权</span>
+                        </div>
+                        <div class="patent-details">
+                            <p><i class="fas fa-users"></i> <strong>发明人：</strong>安春燕, 王同学, 李同学</p>
+                            <p><i class="fas fa-calendar-alt"></i> <strong>授权时间：</strong>2023年10月</p>
+                            <p><i class="fas fa-tag"></i> <strong>专利号：</strong>ZL 2022 1 XXXXXXX.X</p>
+                            <p><i class="fas fa-info-circle"></i> <strong>摘要：</strong>本发明提供了一种基于深度学习的云计算负载预测方法，通过时间序列分析和多特征融合，实现对云计算环境中计算资源负载的精准预测，为自动弹性扩缩提供决策依据。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="patent-item">
+                        <div class="patent-header">
+                            <h3>一种多模态知识图谱构建与融合方法</h3>
+                            <span class="patent-status pending">审查中</span>
+                        </div>
+                        <div class="patent-details">
+                            <p><i class="fas fa-users"></i> <strong>发明人：</strong>安春燕, 张同学, 陈同学</p>
+                            <p><i class="fas fa-calendar-alt"></i> <strong>申请时间：</strong>2023年5月</p>
+                            <p><i class="fas fa-tag"></i> <strong>申请号：</strong>CN XXXXXXXX.X</p>
+                            <p><i class="fas fa-info-circle"></i> <strong>摘要：</strong>本发明提供了一种多模态知识图谱构建与融合方法，能够从文本、图像、音频等多种模态数据中提取知识，并进行结构化表示与融合，提高知识图谱的完整性和准确性。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="patent-item">
+                        <div class="patent-header">
+                            <h3>一种基于知识图谱的智能推荐系统</h3>
+                            <span class="patent-status granted">已授权</span>
+                        </div>
+                        <div class="patent-details">
+                            <p><i class="fas fa-users"></i> <strong>发明人：</strong>安春燕, 刘同学, 吴同学</p>
+                            <p><i class="fas fa-calendar-alt"></i> <strong>授权时间：</strong>2022年7月</p>
+                            <p><i class="fas fa-tag"></i> <strong>专利号：</strong>ZL 2021 1 XXXXXXX.X</p>
+                            <p><i class="fas fa-info-circle"></i> <strong>摘要：</strong>本发明提供了一种基于知识图谱的智能推荐系统，结合用户行为数据和领域知识图谱，通过知识感知的推理算法，实现个性化和可解释的推荐，适用于电子商务、内容分发等场景。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 软件著作权部分 -->
+            <section class="software tab-content" id="software">
+                <h2>软件著作权</h2>
+                
+                <div class="software-list">
+                    <div class="software-item">
+                        <div class="software-header">
+                            <h3>知识图谱构建与管理平台</h3>
+                        </div>
+                        <div class="software-details">
+                            <p><i class="fas fa-users"></i> <strong>著作权人：</strong>内蒙古大学, 安春燕</p>
+                            <p><i class="fas fa-calendar-alt"></i> <strong>登记时间：</strong>2023年12月</p>
+                            <p><i class="fas fa-tag"></i> <strong>登记号：</strong>2023SRXXXXXX</p>
+                            <p><i class="fas fa-info-circle"></i> <strong>简介：</strong>本软件是一套完整的知识图谱构建与管理工具，支持多源数据抽取、知识融合、知识推理、可视化展示等功能，可广泛应用于各领域的知识管理与智能应用开发。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="software-item">
+                        <div class="software-header">
+                            <h3>云计算资源智能调度系统</h3>
+                        </div>
+                        <div class="software-details">
+                            <p><i class="fas fa-users"></i> <strong>著作权人：</strong>内蒙古大学, 安春燕, 中国移动内蒙古分公司</p>
+                            <p><i class="fas fa-calendar-alt"></i> <strong>登记时间：</strong>2023年6月</p>
+                            <p><i class="fas fa-tag"></i> <strong>登记号：</strong>2023SRXXXXXX</p>
+                            <p><i class="fas fa-info-circle"></i> <strong>简介：</strong>本软件实现了基于深度学习的负载预测和智能调度功能，能够根据历史负载数据和趋势预测，自动进行资源分配和弹性扩缩，提高计算资源利用率和服务质量。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="software-item">
+                        <div class="software-header">
+                            <h3>内蒙古文化旅游智能导览系统</h3>
+                        </div>
+                        <div class="software-details">
+                            <p><i class="fas fa-users"></i> <strong>著作权人：</strong>内蒙古大学, 安春燕</p>
+                            <p><i class="fas fa-calendar-alt"></i> <strong>登记时间：</strong>2022年10月</p>
+                            <p><i class="fas fa-tag"></i> <strong>登记号：</strong>2022SRXXXXXX</p>
+                            <p><i class="fas fa-info-circle"></i> <strong>简介：</strong>本软件基于多模态知识图谱技术，构建了内蒙古文化旅游领域的综合知识库，提供智能问答、个性化推荐、虚拟导览等功能，丰富游客体验，促进文化传播。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="software-item">
+                        <div class="software-header">
+                            <h3>奶业生产智能管理系统</h3>
+                        </div>
+                        <div class="software-details">
+                            <p><i class="fas fa-users"></i> <strong>著作权人：</strong>内蒙古大学, 安春燕, 内蒙古伊利实业集团股份有限公司</p>
+                            <p><i class="fas fa-calendar-alt"></i> <strong>登记时间：</strong>2022年5月</p>
+                            <p><i class="fas fa-tag"></i> <strong>登记号：</strong>2022SRXXXXXX</p>
+                            <p><i class="fas fa-info-circle"></i> <strong>简介：</strong>本软件应用大数据和人工智能技术，实现对奶牛养殖全过程的智能监控和管理，包括健康监测、产量分析、质量评估、饲养优化等功能模块，为奶业生产提供决策支持。</p>
+                        </div>
                     </div>
                 </div>
             </section>

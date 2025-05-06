@@ -1123,4 +1123,267 @@ footer a:hover {
     .sub-area h4 {
         font-size: 1rem;
     }
+}
+
+/* 科研成果页面 - 选项卡样式 */
+.results-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    background-color: #f0f4f8;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: #333;
+    font-size: 1rem;
+}
+
+.tab-btn:hover {
+    background-color: #e0eaf4;
+    transform: translateY(-2px);
+}
+
+.tab-btn.active {
+    background-color: #2c6cb9;
+    color: white;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* 科研项目样式 */
+.project-filter {
+    margin-bottom: 30px;
+}
+
+.project-filter select {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    background-color: white;
+    -webkit-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%232c6cb9" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    padding-right: 30px;
+    min-width: 200px;
+}
+
+.project-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.project-header {
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #eef2f7 100%);
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.project-header h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.3rem;
+}
+
+.project-tag {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: white;
+}
+
+.project-tag.national {
+    background-color: #e74c3c;
+}
+
+.project-tag.provincial {
+    background-color: #3498db;
+}
+
+.project-tag.university {
+    background-color: #2ecc71;
+}
+
+.project-tag.enterprise {
+    background-color: #f39c12;
+}
+
+.project-details {
+    padding: 20px;
+}
+
+.project-details p {
+    margin-bottom: 12px;
+}
+
+.project-details i {
+    color: #2c6cb9;
+    width: 20px;
+    text-align: center;
+    margin-right: 8px;
+}
+
+/* 专利样式 */
+.patent-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.patent-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.patent-header {
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #eef2f7 100%);
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.patent-header h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.3rem;
+}
+
+.patent-status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: white;
+}
+
+.patent-status.granted {
+    background-color: #2ecc71;
+}
+
+.patent-status.pending {
+    background-color: #f39c12;
+}
+
+.patent-details {
+    padding: 20px;
+}
+
+.patent-details p {
+    margin-bottom: 12px;
+}
+
+.patent-details i {
+    color: #2c6cb9;
+    width: 20px;
+    text-align: center;
+    margin-right: 8px;
+}
+
+/* 软件著作权样式 */
+.software-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.software-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.software-header {
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #eef2f7 100%);
+    border-bottom: 1px solid #eee;
+}
+
+.software-header h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.3rem;
+}
+
+.software-details {
+    padding: 20px;
+}
+
+.software-details p {
+    margin-bottom: 12px;
+}
+
+.software-details i {
+    color: #2c6cb9;
+    width: 20px;
+    text-align: center;
+    margin-right: 8px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .results-tabs {
+        justify-content: center;
+    }
+    
+    .tab-btn {
+        flex: 1 1 calc(50% - 10px);
+        text-align: center;
+        padding: 10px 5px;
+    }
+    
+    .project-header, .patent-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .project-tag, .patent-status {
+        align-self: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    .tab-btn {
+        flex: 1 1 100%;
+    }
 } 

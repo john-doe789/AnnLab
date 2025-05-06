@@ -555,5 +555,136 @@ function addGradeFilters() {
 
 // 设置论文过滤功能
 function setupPublicationFilters() {
-    // 论文过滤功能
+    const pubYearSelect = document.getElementById('pub-year');
+    const pubTypeSelect = document.getElementById('pub-type');
+    
+    if (pubYearSelect && pubTypeSelect) {
+        pubYearSelect.addEventListener('change', filterPublications);
+        pubTypeSelect.addEventListener('change', filterPublications);
+        
+        function filterPublications() {
+            const selectedYear = pubYearSelect.value;
+            const selectedType = pubTypeSelect.value;
+            
+            // 获取所有论文年份和条目
+            const pubYears = document.querySelectorAll('.pub-year');
+            const pubItems = document.querySelectorAll('.pub-item');
+            
+            // 按年份筛选
+            if (selectedYear === 'all') {
+                pubYears.forEach(yearSection => {
+                    yearSection.style.display = 'block';
+                    setTimeout(() => {
+                        yearSection.style.opacity = '1';
+                    }, 50);
+                });
+            } else {
+                pubYears.forEach(yearSection => {
+                    if (yearSection.id === 'year-' + selectedYear) {
+                        yearSection.style.display = 'block';
+                        setTimeout(() => {
+                            yearSection.style.opacity = '1';
+                        }, 50);
+                    } else {
+                        yearSection.style.opacity = '0';
+                        setTimeout(() => {
+                            yearSection.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            }
+            
+            // 按类型筛选
+            if (selectedType !== 'all') {
+                pubItems.forEach(item => {
+                    if (item.parentElement.style.display !== 'none') {
+                        if (item.classList.contains(selectedType)) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(10px)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    }
+                });
+            } else {
+                pubItems.forEach(item => {
+                    if (item.parentElement.style.display !== 'none') {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 50);
+                    }
+                });
+            }
+        }
+    }
+    
+    // 设置科研成果页面的选项卡切换
+    setupResultsTabs();
+    
+    // 设置项目过滤器
+    setupProjectFilter();
+}
+
+// 设置科研成果页面的选项卡切换
+function setupResultsTabs() {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    if (tabButtons.length && tabContents.length) {
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // 移除所有标签的活动状态
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // 激活选中的标签
+                button.classList.add('active');
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+                
+                // 平滑滚动到内容顶部
+                window.scrollTo({
+                    top: document.querySelector('.results-tabs').offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    }
+}
+
+// 设置项目过滤器
+function setupProjectFilter() {
+    const projectTypeSelect = document.getElementById('project-type');
+    
+    if (projectTypeSelect) {
+        projectTypeSelect.addEventListener('change', () => {
+            const selectedType = projectTypeSelect.value;
+            const projectItems = document.querySelectorAll('.project-item');
+            
+            projectItems.forEach(item => {
+                if (selectedType === 'all' || item.classList.contains(selectedType)) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, 50);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(10px)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    }
 } 
