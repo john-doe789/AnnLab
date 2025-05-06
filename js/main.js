@@ -446,4 +446,114 @@ document.addEventListener('DOMContentLoaded', function() {
             header.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
         });
     }
-}); 
+
+    // 如果在研究生页面
+    if (document.querySelector('.students')) {
+        // 添加年级标签过滤功能
+        addGradeFilters();
+    }
+    
+    // 如果在论文页面
+    if (document.querySelector('.publications')) {
+        setupPublicationFilters();
+    }
+});
+
+// 添加年级标签筛选功能
+function addGradeFilters() {
+    // 获取所有学生年级部分
+    const grades = document.querySelectorAll('.students h3');
+    
+    // 如果找到了年级标题
+    if (grades.length > 0) {
+        // 创建过滤器容器
+        const filterContainer = document.createElement('div');
+        filterContainer.className = 'grade-filter';
+        
+        // 添加"全部"按钮
+        const allButton = document.createElement('button');
+        allButton.textContent = '全部年级';
+        allButton.className = 'active';
+        allButton.addEventListener('click', function() {
+            // 显示所有年级
+            document.querySelectorAll('.students h3, .student-grid').forEach(el => {
+                el.style.display = '';
+            });
+            
+            // 更新活动按钮状态
+            document.querySelectorAll('.grade-filter button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            this.classList.add('active');
+        });
+        filterContainer.appendChild(allButton);
+        
+        // 为每个年级创建一个过滤按钮
+        grades.forEach((grade, index) => {
+            const gradeText = grade.textContent.replace('硕士研究生', '').trim();
+            const button = document.createElement('button');
+            button.textContent = gradeText;
+            
+            button.addEventListener('click', function() {
+                // 隐藏所有年级
+                document.querySelectorAll('.students h3, .student-grid').forEach(el => {
+                    el.style.display = 'none';
+                });
+                
+                // 仅显示选中的年级
+                grade.style.display = '';
+                grade.nextElementSibling.style.display = '';
+                
+                // 更新活动按钮状态
+                document.querySelectorAll('.grade-filter button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+            
+            filterContainer.appendChild(button);
+        });
+        
+        // 将过滤器添加到学生部分之前
+        const studentsSection = document.querySelector('.students');
+        studentsSection.insertBefore(filterContainer, studentsSection.firstChild);
+        
+        // 添加过滤器样式
+        const style = document.createElement('style');
+        style.textContent = `
+            .grade-filter {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+            
+            .grade-filter button {
+                padding: 8px 15px;
+                background-color: #f0f4f8;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-weight: 500;
+                color: #333;
+            }
+            
+            .grade-filter button:hover {
+                background-color: #e0eaf4;
+                transform: translateY(-2px);
+            }
+            
+            .grade-filter button.active {
+                background-color: #2c6cb9;
+                color: white;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
+// 设置论文过滤功能
+function setupPublicationFilters() {
+    // 论文过滤功能
+} 

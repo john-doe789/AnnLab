@@ -308,6 +308,17 @@ p {
     color: #666;
 }
 
+.students h3 {
+    margin: 30px 0 15px;
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e9f2fa 100%);
+    border-left: 4px solid #2c6cb9;
+    border-radius: 0 4px 4px 0;
+    color: #1a4a8e;
+    font-size: 1.3rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
 .student-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
