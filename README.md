@@ -88,11 +88,13 @@ annlab-template/
 - 上传图片前请确保图片大小适当，以提高网站加载速度
 - 请替换联系信息为你实验室的真实联系方式
 
-## 自定义建议
+## git上传代码
 
-- **更改颜色主题**: 修改`css/style.css`中的颜色变量
-- **添加更多页面**: 复制现有页面结构并修改内容
-- **增加功能**: 在`js/main.js`中添加新的JavaScript功能
+- git status
+- git add .
+- git commit -m "添加团队成员头像和相关样式优化"
+- git remote -v
+- git push origin main
 
 ## 兼容性
 
