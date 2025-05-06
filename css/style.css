@@ -10,6 +10,12 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #f8f9fa;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+body.loaded {
+    opacity: 1;
 }
 
 .container {
@@ -21,30 +27,85 @@ body {
 a {
     color: #2c6cb9;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 a:hover {
     color: #1a4a8e;
 }
 
+a:not(.no-underline):after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #2c6cb9;
+    transition: width 0.3s ease;
+}
+
+a:not(.no-underline):hover:after {
+    width: 100%;
+}
+
 /* 头部样式 */
 header {
-    background-color: #2c6cb9;
+    background: linear-gradient(135deg, #1a4a8e 0%, #2c6cb9 50%, #3a8edf 100%);
     color: white;
-    padding: 30px 0;
+    padding: 40px 0;
     text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeInDown 0.8s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+header:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(rgba(255, 255, 255, 0.05) 5%, transparent 12%);
+    background-size: 30px 30px;
+    animation: headerBgAnimation 60s linear infinite;
+    z-index: 1;
+}
+
+@keyframes headerBgAnimation {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(50px, 50px);
+    }
+}
+
+header .container {
+    position: relative;
+    z-index: 2;
 }
 
 header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 5px;
+    font-size: 3rem;
+    margin-bottom: 10px;
     letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #ffffff, #e0e0e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 
 header p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     opacity: 0.9;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 /* 导航样式 */
@@ -54,6 +115,7 @@ nav {
     position: sticky;
     top: 0;
     z-index: 100;
+    animation: fadeInDown 0.6s ease;
 }
 
 nav ul {
@@ -77,23 +139,36 @@ nav ul li a {
     border-bottom: 3px solid transparent;
 }
 
-nav ul li a:hover,
+nav ul li a:hover, 
 nav ul li a.active {
     color: #2c6cb9;
     border-bottom: 3px solid #2c6cb9;
+    transform: translateY(-2px);
+}
+
+nav ul li a:after {
+    display: none;
 }
 
 /* 主要内容区域 */
 main {
     padding: 40px 0;
+    animation: fadeIn 0.8s ease;
 }
 
 section {
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
     padding: 30px;
     margin-bottom: 30px;
+    transition: all 0.3s ease;
+    transform: translateY(0);
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
 }
 
 h2 {
@@ -102,6 +177,17 @@ h2 {
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 2px solid #eee;
+    position: relative;
+}
+
+h2:after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    bottom: -2px;
+    left: 0;
+    background-color: #2c6cb9;
 }
 
 h3 {
@@ -112,6 +198,7 @@ h3 {
 
 p {
     margin-bottom: 15px;
+    line-height: 1.7;
 }
 
 /* 首页新闻样式 */
@@ -120,6 +207,11 @@ p {
     margin-bottom: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid #eee;
+    transition: transform 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateX(5px);
 }
 
 .news-item:last-child {
@@ -147,6 +239,11 @@ p {
 
 .research li {
     margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.research li:hover {
+    transform: translateX(5px);
 }
 
 /* 团队成员页面样式 */
@@ -155,6 +252,11 @@ p {
     margin-bottom: 30px;
     padding-bottom: 30px;
     border-bottom: 1px solid #eee;
+    transition: transform 0.3s ease;
+}
+
+.person:hover {
+    transform: translateY(-5px);
 }
 
 .person:last-child {
@@ -167,12 +269,24 @@ p {
     margin-right: 30px;
     overflow: hidden;
     border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.person:hover .person-img {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
 }
 
 .person-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.person:hover .person-img img {
+    transform: scale(1.1);
 }
 
 .person-info {
@@ -206,6 +320,13 @@ p {
     background-color: #f8f9fa;
     border-radius: 5px;
     border-left: 3px solid #2c6cb9;
+    transition: all 0.3s ease;
+}
+
+.student:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    background-color: #f0f4f8;
 }
 
 .alumni ul {
@@ -217,6 +338,11 @@ p {
     margin-bottom: 10px;
     padding-left: 20px;
     position: relative;
+    transition: transform 0.3s ease;
+}
+
+.alumni li:hover {
+    transform: translateX(5px);
 }
 
 .alumni li:before {
@@ -239,13 +365,28 @@ p {
 }
 
 .pub-filter select {
-    padding: 5px 10px;
+    padding: 8px 15px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background-color: white;
+    -webkit-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%232c6cb9" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    padding-right: 30px;
+}
+
+.pub-filter select:focus {
+    outline: none;
+    border-color: #2c6cb9;
+    box-shadow: 0 0 0 3px rgba(44, 108, 185, 0.2);
 }
 
 .pub-year {
     margin-bottom: 40px;
+    animation: fadeIn 0.5s ease;
 }
 
 .pub-item {
@@ -254,6 +395,14 @@ p {
     border-radius: 5px;
     margin-bottom: 15px;
     border-left: 4px solid #2c6cb9;
+    transition: all 0.3s ease;
+    transform: translateY(0);
+}
+
+.pub-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    background-color: #f0f4f8;
 }
 
 .pub-title {
@@ -282,6 +431,17 @@ p {
     display: inline-flex;
     align-items: center;
     font-size: 0.9rem;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.pub-links a:after {
+    display: none;
+}
+
+.pub-links a:hover {
+    transform: translateY(-2px);
 }
 
 .pub-links a i {
@@ -290,14 +450,29 @@ p {
 
 .pub-links .pdf {
     color: #e74c3c;
+    background-color: rgba(231, 76, 60, 0.1);
+}
+
+.pub-links .pdf:hover {
+    background-color: rgba(231, 76, 60, 0.2);
 }
 
 .pub-links .code {
     color: #3498db;
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+.pub-links .code:hover {
+    background-color: rgba(52, 152, 219, 0.2);
 }
 
 .pub-links .demo {
     color: #2ecc71;
+    background-color: rgba(46, 204, 113, 0.1);
+}
+
+.pub-links .demo:hover {
+    background-color: rgba(46, 204, 113, 0.2);
 }
 
 /* 学术活动页面样式 */
@@ -307,7 +482,13 @@ p {
     background-color: white;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.event:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
 }
 
 .event-date {
@@ -319,6 +500,18 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.event-date:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%);
 }
 
 .event-date .month {
@@ -344,6 +537,11 @@ p {
 .event-details h3 {
     margin-top: 0;
     color: #2c6cb9;
+    transition: color 0.3s ease;
+}
+
+.event:hover .event-details h3 {
+    color: #1a4a8e;
 }
 
 .event-location, .event-time {
@@ -365,15 +563,25 @@ p {
 .event-register {
     display: inline-block;
     background-color: #2c6cb9;
-    color: white;
+    color: white !important;
     padding: 8px 15px;
     border-radius: 4px;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 .event-register:hover {
     background-color: #1a4a8e;
     color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.event-register:after {
+    display: none;
 }
 
 .event-grid {
@@ -385,23 +593,45 @@ p {
 .past-event {
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
     background-color: white;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.past-event:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
 }
 
 .past-event img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.past-event:hover img {
+    transform: scale(1.05);
 }
 
 .past-event-info {
     padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .past-event-info h3 {
     margin-top: 0;
     font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.past-event:hover .past-event-info h3 {
+    color: #2c6cb9;
 }
 
 .past-event-info .event-date {
@@ -417,7 +647,13 @@ p {
     display: inline-block;
     color: #2c6cb9;
     font-weight: 500;
-    margin-top: 10px;
+    margin-top: auto;
+    padding: 5px 0;
+    position: relative;
+}
+
+.event-more:after {
+    display: block;
 }
 
 .conference-services {
@@ -430,6 +666,14 @@ p {
     background-color: #f8f9fa;
     padding: 20px;
     border-radius: 5px;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.service:hover {
+    background-color: #f0f4f8;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
 }
 
 .service h3 {
@@ -449,6 +693,11 @@ p {
     margin-bottom: 8px;
     padding-left: 15px;
     position: relative;
+    transition: transform 0.3s ease;
+}
+
+.service li:hover {
+    transform: translateX(5px);
 }
 
 .service li:before {
@@ -465,6 +714,13 @@ p {
     border-radius: 5px;
     margin-bottom: 20px;
     border-left: 4px solid #2c6cb9;
+    transition: all 0.3s ease;
+}
+
+.position:hover {
+    transform: translateX(5px);
+    background-color: #f0f4f8;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
 }
 
 .position h3 {
@@ -474,10 +730,36 @@ p {
 
 .application ol {
     padding-left: 20px;
+    counter-reset: item;
 }
 
 .application li {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    position: relative;
+    transition: transform 0.3s ease;
+    list-style-type: none;
+    padding-left: 40px;
+}
+
+.application li:hover {
+    transform: translateX(5px);
+}
+
+.application li:before {
+    counter-increment: item;
+    content: counter(item);
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #2c6cb9;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
 }
 
 .application h3 {
@@ -500,30 +782,45 @@ p {
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-family: inherit;
     font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2c6cb9;
+    box-shadow: 0 0 0 3px rgba(44, 108, 185, 0.2);
 }
 
 .form-group textarea {
     resize: vertical;
+    min-height: 120px;
 }
 
 .submit-btn {
     background-color: #2c6cb9;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
 }
 
 .submit-btn:hover {
     background-color: #1a4a8e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* 页脚样式 */
@@ -531,6 +828,20 @@ footer {
     background-color: #333;
     color: #ddd;
     padding: 40px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+footer:before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 2px);
+    background-size: 20px 20px;
+    pointer-events: none;
 }
 
 footer a {
@@ -549,12 +860,18 @@ footer a:hover {
 
 .contact p {
     margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.contact p:hover {
+    transform: translateX(5px);
 }
 
 .contact i {
     margin-right: 10px;
     width: 20px;
     text-align: center;
+    color: #2c6cb9;
 }
 
 .copyright {
@@ -564,6 +881,34 @@ footer a:hover {
     text-align: center;
     font-size: 0.9rem;
     color: #999;
+}
+
+/* 动画 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* 响应式设计 */
@@ -636,5 +981,13 @@ footer a:hover {
     
     .news-item .date {
         margin-bottom: 5px;
+    }
+    
+    section {
+        padding: 20px;
+    }
+    
+    .submit-btn {
+        width: 100%;
     }
 } 
