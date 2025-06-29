@@ -488,11 +488,26 @@ function addGradeFilters() {
         });
         filterContainer.appendChild(allButton);
         
-        // 为每个年级创建一个过滤按钮
+        // 收集所有年级并排序
+        const gradeInfos = [];
         grades.forEach((grade, index) => {
             const gradeText = grade.textContent.replace('硕士研究生', '').trim();
+            const gradeYear = parseInt(gradeText.match(/\d+/)[0], 10);
+            gradeInfos.push({
+                element: grade,
+                text: gradeText,
+                year: gradeYear,
+                index: index
+            });
+        });
+        
+        // 按年份从小到大排序
+        gradeInfos.sort((a, b) => a.year - b.year);
+        
+        // 为每个年级创建一个过滤按钮（按排序后的顺序）
+        gradeInfos.forEach(gradeInfo => {
             const button = document.createElement('button');
-            button.textContent = gradeText;
+            button.textContent = gradeInfo.text;
             
             button.addEventListener('click', function() {
                 // 隐藏所有年级
@@ -501,8 +516,8 @@ function addGradeFilters() {
                 });
                 
                 // 仅显示选中的年级
-                grade.style.display = '';
-                grade.nextElementSibling.style.display = '';
+                gradeInfo.element.style.display = '';
+                gradeInfo.element.nextElementSibling.style.display = '';
                 
                 // 更新活动按钮状态
                 document.querySelectorAll('.grade-filter button').forEach(btn => {
